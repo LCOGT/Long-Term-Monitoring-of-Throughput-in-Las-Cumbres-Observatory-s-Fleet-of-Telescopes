@@ -1,4 +1,4 @@
-\documentclass[draft]{spieman}
+\documentclass[]{spieman}
 \usepackage[utf8]{inputenc}
 \usepackage{graphicx}
 \usepackage{hyperref}
@@ -70,10 +70,9 @@
 \author[a]{Curtis McCully}
 \author[a]{Andrew Pickles}
 \author[a]{Nikolaus Volgenau}
-\author[a,b]{Patrick Conway}
+\author[a]{Patrick Conway}
 \author[a]{Brook Taylor}
 \affil[a] {Las Cumbres Observatory, Goleta, CA (USA)}
-\affil[b] {Telescope Technologies Limited, Liverpool, UK}
 
 
 \begin{document}
@@ -106,13 +105,39 @@ and mirrors respectively.
 The Las Cumbres Observatory (LCOGT) operates a fleet of currently more than 20 telescopes,
 consisting of ten 0.4 meter, nine 1 meter, and two 2 meter telescopes at multiple sites across the
 globe\cite{brown2013}; an expansion of the network by additional five one meter class telescopes in
-the northern hemisphere is planned. The telescopes in the network are located at well-established
-observatory sites which provided a significant service infrastructure: Cerro Tololo Inter-American
-Observatory (CTIO), Southern African Astronomical Observatory (SAAO) in Sutherland, Siding Springs
+the northern hemisphere is planned. The telescopes are located at well-established
+observatory sites which already provide service infrastructure\footnote{At LCOGT, telescope sites
+are identified by their nearest airport code (see Table \ref{tab_sites}), and we will follow that 
+nomenclature throughout this paper.}: Cerro Tololo Inter-American
+Observatory (CTIO) in Chile, Southern African Astronomical Observatory (SAAO) in Sutherland, Siding Springs
 observatory in Australia, Teide Observatory in Spain, McDonalds Observatory in the continental US,
-and on Haleakala Observatory on Maui. At LCOGT, telescope sites are identified by their nearest
-airport code (see Table \ref{tab_sites}), and we will follow that nomenclature throughout this
-paper.
+and on Haleakala Observatory on Maui. Ensuring scientific productivity in this globally distributed observatory
+is a multi-faceted challenge, where financial realities and the time overheads of international logistics need 
+to be considered. 
+
+The maintenance and support situation for LCOGT is complicated since all telescopes operate autonomously, 
+i.e., both nighttime and daytime operations of the network are based 
+on computerized execution of observations without direct local or remote human supervision. The observing 
+schedule for the entire observatory is dynamically generated in near real time to 
+react to short term changes in the telescope network\cite{saunders2014}, e.g., due to weather closures or a 
+camera failure. The sheer number of telescopes and the lack of human presence at the sites pose a challenge 
+to understand the state of a facility  and to discover problems of the telescope network. E.g., there is no 
+daily walk-through of the facility as it is typically practiced at larger single telescope facilities, and 
+observatory staff's interaction with the telescopes fully depends on remote sensing. 
+
+With the exception of the two 2 meter telescope sites (Haleakala and Siding Springs) where LCOGT staff
+is in residence, emergency maintenance and basic operational support are provided by the
+observatory's site staff. The telescopes and site infrastructure are maintained and upgraded during
+dedicated service campaigns. Since the effort and cost for each maintenance campaign to a site are
+large --- equipment and personnel need to be transported from the headquarter in Santa Barbara, CA,
+to each site --- it is highly desirable to prioritize service tasks based on performance metrics
+that are relevant to the scientific productivity of the telescope network.
+
+
+
+In this paper we describe how one specific metric, the throughput of a telescope system as measured
+by the photometric zero point, is used to understand the state of the
+telescope's optics and to guide improvement and maintenance throughout the observatory.
 
 
 \begin{table}[h]
@@ -124,45 +149,13 @@ Sutherland, South Africa  & CPT &   & 3 & 1 \\
 Teide, Spain              & TFN &   &   & 2 \\
 Cerro Tololo, Chile       & LSC &   & 3 & 2 \\
 McDonald Observatory, USA & ELP &   & 1 & 1\\
-Haleakala, Hawaii, USA     & OGG & 1 &   & 2 \\\hline
+Haleakala, Hawaii, USA    & OGG & 1 &   & 2 \\\hline
                        &   \bf Total:  & \bf 2 & \bf 9 & \bf 10 \\ \hline
 \end{tabular}
 \vspace{1ex}
 \caption{\label{tab_sites} List of observatories with LCOGT telescopes designed for science
 operations. The LCOGT-internal site code is derived from the nearest major airport. }
 \end{table}
-
-
-LCOGT's telescopes operate autonomously under computer control, where the observing schedule for the
-entire observatory is dynamically generated in near real time to react to a short term changes in
-the telescope network\cite{saunders2014}, e.g., due to weather closures or a camera failure. Both
-nighttime and daytime operations of the network are based on computerized execution of
-observations without direct local or remote human supervision. The sheer number of telescopes and
-the lack of human presence during observing pose a challenge to understand the performance and to
-discover problems of the telescope network. E.g., there is no daily walk-through of the facility as
-it is typically practiced at larger single telescope facilities.
-
-With the exception of the two 2 meter telescope sites (Haleakala and Siding Springs) where LCOGT staff
-is in residence, emergency maintenance and basic operational support are provided by the
-observatory's site staff. The telescopes and site infrastructure are maintained and upgraded during
-dedicated service campaigns. Since the effort and cost for each maintenance campaign to a site are
-large --- equipment and personnel need to be transported from the headquarter in Santa Barbara, CA,
-to each site --- it is highly desirable to prioritize service tasks based on performance metrics
-that are relevant to the scientific productivity of the telescope network.
-
-Each telescope is equipped with a primary scientific imaging camera (the imagers at the 1 and 2
-meter telescopes are based on Fairchild CCD486 devices with a field of view of $25' \times 25'$ and
-$10' \times 10'$ respectively, the imagers at the 0.4 meter telescopes are commercial SBIG 6303
-cameras with a field of view of $25' \ times 25'$). The cameras have a comprehensive filter set,
-which includes a set in the Sloan Digital Sky Survey (SDSS) photometric system\cite{fukugita1996}. The two meter telescopes
-provide low resolution spectroscopy capability via the Floyds\cite{brown2013} spectrograph, whereas
-three of LCOGT's 1 meter telescopes are equipped with high resolution Echelle spectrograph instruments
-(NRES)\cite{eastman2014,siverd2016}.
-
-In this paper we describe how one specific metric, the throughput of a telescope system as measured
-by the photometric zero point of the primary imaging camera, is used to understand the state of the
-telescope's optics and to guide improvement and maintenance throughout the observatory.
-
 
 \subsection{Maintenance of Optical Surfaces at LCO}
 
@@ -171,7 +164,7 @@ telescope's optics and to guide improvement and maintenance throughout the obser
 The mirrors of a telescope are a key factor in the  scientific performance of an observatory.
 Their reflectance typically degrades over time due to their exposure to the environment. A dominant
 degradation mechanism is dust and pollen accumulation on the mirror surface which is usually
-addressed by C02 snow cleaning or direct contact methods (wet wash with mild soap, adhesive films).
+addressed by CO$_2$ snow cleaning or direct contact methods (wet wash with mild soap, adhesive films).
 The long-term degradation of optics is driven by the accumulation of scratches, dust permanently
 binding to the surface, and in worse cases, by the delamination of the aluminum coating itself. The
 latter is a particular problem for all deployed LCOGT mirrors, where the aluminum layer has
@@ -180,21 +173,21 @@ peeled off and degraded over significant areas of the mirrors (Figure \ref{fig_m
 The mirrors of the 1 meter telescopes still use the original coating from their deployment in 2012 
 and 2013, i.e., at the time of this writing they are of the order of five to six years old. The
 coating  on the two meter telescope's  primary and secondary mirrors at the COJ site (Siding
-springs) are 5  and 16 years old, respectively. The primary  mirror at the OGG site (Haleakala) was
+Springs) are 5  and 16 years old, respectively. The primary  mirror at the OGG site (Haleakala) was
 coated in 2017, after 8 years in service; the secondary  was coated in 2014 with a protective 
 overcoat.   
 
-Site staff administers CO2-snow cleaning of the mirror surfaces of the 1 meter and 2 meter
-telescopes on a roughly monthly basis, following the local best practices. However, there is no 
-widespread cleaning procedure established for the 0.4 meter corrector plates yet, but those tend
-to accumulate dust as well. LCOGT is working currently on improving the cleaning protocol for all
+Site staff administers CO$_2$-snow cleaning of the mirror surfaces of the 1 meter and 2 meter
+telescopes on a roughly monthly basis, following locally adopted best practices. However, there is no 
+widespread cleaning procedure established for the 0.4 meter corrector plates yet, although accumulate
+dust as well. LCOGT is working currently on improving the cleaning protocol for all
 telescopes. In order to address the significantly degraded coating at the 1 meter and 2 meter
 telescopes, all mirrors are scheduled for recoating by the end of 2018. This is an enormous
-logistical effort given the number of mirrors at multiple sties.
+logistical effort given there are eleven such mirrors at multiple sties.
 
 At the beginning of 2018 a project team was formed to complete the optics renewal for all 1 and
 2m Telescopes.  Leveraging a quality controlled coating lab, a schedule was outlined to complete
-the removal, reassembly, and collimation of the network of Telescopes.  Initial review of the
+the removal, reassembly, and collimation of the network of telescopes.  Initial review of the
 existing procedures were tested at LCOGT's headquarter, were personnel were trained to complete the
 work in the field.  Collimation characterization criteria were developed to qualify the newly
 installed optics along with wavefront sensing equipment to validate the before and after condition
@@ -213,29 +206,44 @@ area of the mirrors. }
 \section{Measuring the photometric zeropoint in a homogeneous fleet of telescopes}
 
 
-Each class of telescopes in LCOGT's network is equipped with identical imaging cameras, allowing a
-direct comparison of each system's performance. All data taken at LCOGT's telescopes are transferred
+Our interest is in using the photometric zeropoint measured in a science image as a proxy for the
+telescope and image system throughput, as it is standard practice at many observatories. An individual 
+image's photometric zeropoint measurement is impacted by many factors, such as attenuation by clouds, 
+measurement errors, and instrument errors, and is hence of limited relevance. However, the long term
+trend in the photometric zeropoint of all images taken at a telescopes is a meaningful proxy for the 
+system's efficiency.
+
+On-sky throughput measurement in the past have often been limited to isolated observations of a few 
+standard stars per year\cite{benn2000}. We exploit the availability of well-calibrated all-sky photometric
+catalogs and access to a central data archive with homogeneously calibrated data to turn every exposure 
+at a LCOGT telescope into a measurement of a telescope's throughput.  
+
+Each telescope is equipped with a primary scientific imaging camera (the imagers at the 1 and 2
+meter telescopes are based on Fairchild CCD486 devices with a field of view of $25' \times 25'$ and
+$10' \times 10'$ respectively, the imagers at the 0.4 meter telescopes are commercial SBIG 6303
+cameras with a field of view of $25' \ times 25'$). The cameras have a comprehensive filter set,
+which includes a set in the Sloan Digital Sky Survey (SDSS) photometric system\cite{fukugita1996}. 
+The two meter telescopes provide low resolution spectroscopy capability via the Floyds\cite{brown2013}
+spectrograph, whereas three of LCOGT's 1 meter telescopes are equipped with high resolution Echelle 
+spectrograph instruments (NRES)\cite{eastman2014,siverd2016}.
+
+All data taken at LCOGT's telescopes are transferred
 via the Internet to a live storage located at the headquarter in Santa Barbara. The incoming imaging
-data at are then processed daily with the BANZAI pipeline (Beautiful Algorithms to Normalize
+data are then processed daily with the BANZAI pipeline (Beautiful Algorithms to Normalize
 Zillions of Astronomical Images) \cite{mccully2018}\footnote{\url{https://github.com/LCOGT/banzai}},
 which will perform the standard CCD processing (crosstalk, overscan, bias, dark, and flat field
 correction), followed by the extraction of a object catalog from the image and cross-matching with
 existing catalogs to derive an astrometric solution via {\tt astrometry.net}\cite{lang2010}. The
 object catalog is stored along with the final calibrated data product and then published in LCOGT's
 online archive\footnote{\url{https://archive.lco.global}}. Photometric calibration of images is not
-part of standard processing.
+a part of standard processing.
 
-Our interest is in using the photometric zeropoint measured in a science image as a proxy for the
-telescope and image system throughput. An individual image's photometric zeropoint measurement is
-impacted by many factors, such as attenuation by clouds, measurement errors, and instrument errors,
-and is hence of limited relevance. However, the long term trend in the photometric zeropoint of all
-images taken at a telescopes is a meaningful proxy for the system's efficiency. To measure the
-photometric zeropoint in LCOGT's images we have developed a program that crawls through BANZAI
+To measure the photometric zeropoint in LCOGT's images we have developed a program that crawls through BANZAI
 processed image from LCOGT's on-site archive and derives a photometric zeropoint calibration for
 each image by cross-matching sources with the PANSTARRS DR1 photometric catalog\cite{chambers2016}. 
 For each BANZAI-processed image taken at any telescope, we determine the photometric zero point 
-following the prescription below. Note that this approach is passive in the sense that is utilizing 
-science observations that have been already scheduled -- no special calibration field observations 
+following the prescription below. Note that this approach is passive in the sense that it is utilizing 
+science observations that have already been observed -- no special calibration field observations 
 requests are injected into the schedule for the purpose of this study, therefore maximizing usable 
 science observation:
 
@@ -264,7 +272,7 @@ r'})_{\rm SDSS}$$.
 identifier, airmass, formal error, color term) in a SQLite database.
 \end{enumerate}
 
-Diagnostic plots are optionally generated during the zero point fitting procedure to display the
+Diagnostic plots are optionally generated during the zeropoint fitting procedure to display the
 SDSS reference band magnitude versus difference in instrumental and catalog magnitude; these plots
 have been useful during code development, but they are to numerous to inspect for all data in the
 archive and therefor disabled by default. We find those plots however useful when recommissioning a
@@ -280,9 +288,9 @@ airmass term for a single image exposure.}
 \end{figure}
 
 After initially processing all BANZAI-calibrated\footnote{BANZAI was deployed early 2016, which 
-is why the following plots will start then} images 
+is why the following plots will start at that time; LCOGT has been operational earlier.} images 
 in the LCOGT archive (over of $250000$ images), zeropoints for newly observed  images are now 
-calculated on a daily basis using an autonomous process. The results (described in the next section) 
+calculated on a daily basis using an autonomous process. The results  
 are made available at a web page internal to LCOGT. It is a goal to implement the zeropoint 
 calibration as a part of the default processing in the BANZAI pipeline.
 
@@ -294,7 +302,7 @@ parameter space of about 30 cameras at 21 telescopes in four filters (g'r'i'z') 
 A canonical way to inspect those data is to show the photometric zeropoint of the imager
 (there is only one primary imager at any moment per telescope) vs time, and we plot the zeropoint in
 the SDSS g' and r' filter for all LCOGTN's sites in Figure \ref{fig_zpLSC}; the sampling in the i' 
-and z' band filters is too sparse to add meaningful information to this paper. Different cameras
+and z' band filters is too sparse to add meaningful information. Different cameras
 are identified in those plots. Photometric zeropoints are corrected to an airmass of 1 for plotting 
 and further calculation. Note that the zeropoint is in magnitudes, i.e., it is a logarithmic 
 representation of the throughput. A zeropoint difference $\Delta m$ translates into a flux 
@@ -308,12 +316,12 @@ errors (e.g., images taken in the Galactic plane) are grayed out in the plots. S
 telescopes do not yet have a long history of observations since they were only deployed recently.
 
 \item Different CCD camera types have a different quantum efficiency, as seen by, e.g., the sudden
-jump in throughput in October 2016 in the throughput of the LSC doma-1m0a plot. At that time an
+increase of the throughput in October 2016 in the throughput of the LSC doma-1m0a plot. At that time an
 older SBIG CCD camera was replaced by a more sensitive Sinistro imager.
 
 \item The general trend in zeropoint vs time trends down, as it is expected.
 
-\item Realuminizing of a mirror resulted in very significant throughput improvements.Those events 
+\item Realuminizing of a mirror resulted in very significant throughput improvements. Those events 
 (as well as a special cleaning of a mirror) are marked with grey vertical bars in the plots:
  \begin{enumerate}
  	\item In October 2017 the 1 meter telescope in the dome c at the LSC (CTIO) site.
@@ -324,8 +332,8 @@ older SBIG CCD camera was replaced by a more sensitive Sinistro imager.
  factor of 2.1. The throughput improved by about 1.7 magnitudes, or a factor of 4.8!
 
 \item Cleaning a mirror, or for the 0.4 meter telescopes, the Schmidt corrector plate, can yield
-a significant throughput improvements. An example is the 0.4 meter telescope at the COJ (Siding 
-Springs) site around July 2017, where after CO2 snow cleaning the throughput increased by about 
+a significant throughput improvement. An example is the 0.4 meter telescope at the COJ (Siding 
+Springs) site around July 2017, where after CO$_2$ snow cleaning the throughput increased by about 
 0.35 magnitudes, or a factor of 1.4. 
 
 
@@ -445,11 +453,8 @@ TFN \\
 
 We are interested in the behavior of the telescope fleet: We model the upper
 envelope of the zeropoint vs. time trend for each individual telescope, as indicated by the red
-lines
-in Figure \ref{fig_zpLSC}. The general trends in the r' band for all 1 meter and 2 meter telescopes
-are shown together in Fig. \ref{fig_alltelescopes}; we found the dataset on the 0.4 meter too small
-and intermittent  for
-this plot to be meaningful in this paper. We observe:
+lines in Figure \ref{fig_zpLSC}. The general trends in the r' band for all 1 meter and 2 meter telescopes
+are shown together in Figure \ref{fig_alltelescopes}. We observe:
 
 \begin{enumerate}
 \item All telescopes in LCOGT's telescope network lost significant throughput over the time covered
@@ -462,25 +467,25 @@ telescope, improving the throughput throughout the network significantly.
 comparison to the performance of the 1 meter telescopes. The recent recoating of the first 2 meter
 and 1 meter telescope mirrors demonstrates their  performance potential. Comparing the peak 
 performance of the COJ 2 meter telescope with the peak of the ELP 1 meter telescope, as indicated 
-in Fig.ure \ref{fig_zpLSC}, yields a  relative throughput difference  ($10^{-0.4\times (25.3-23.8)} 
+in Figure \ref{fig_zpLSC}, yields a  relative throughput difference  ($10^{-0.4\times (25.3-23.8)} 
 \sim 3.98$ , which is remarkably close to the expected value based on their aperture ratio 
-($2m^2/1m^2 = 4$).
+($2m^2)/(1m^2 = 4$).
 
 \item The mirrors at the various sites degrade at a very similar rate, which is remarkable given the
 different levels of dust exposures at the sites, e.g., between McDonalds observatory and CTIO. The
 throughput is lost at a rate of approximately 0.25 mag per year, which corresponds to about $2 \%$
-per month, which is significantly higher than the decrease rate of $0.5\%$ cited in
-\cite{designolt,benn2000} for particle deposition on mirrors. This elevated decay rate is 
-consistent with the decomposition of the aluminum coating seen throughput our mirrors.
+per month, which is significantly higher than the decrease rate of $0.5\%$ reported for the 
+William Hershell Telescope\cite{designolt,benn2000} for particle deposition on mirrors. This elevated 
+decay rate is  consistent with the decomposition of the aluminum coating seen throughout our mirrors.
 
 \item We note that since the beginning of 2018, the throughput at the 2 meter telescope at COJ 
 (Siding Springs) has started to degrade at an accelerated pace, indicating the approach of a total 
 coating failure. It is scheduled for recoating in June 2018.
 
 \item The recently recoated mirror at the LSC site has already lost reflectivity of the order of 0.2
-mag; CO2 snow cleaning in May 2018 (\ref{fig_zpLSC}) did not fully recover the throughput of the
-freshly replaced mirror,  indicating that the current cleaning schedule is insufficient, or the
-method is incomplete, to maintain a high throughput over an extended time.
+mag; CO$_2$ snow cleaning in May 2018 (\ref{fig_zpLSC}) did not fully recover the throughput of the
+freshly replaced mirror,  indicating that the current cleaning schedule or method is insufficient
+to maintain a high throughput over an extended time.
 \end{enumerate}
 
 
