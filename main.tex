@@ -524,16 +524,15 @@ cleaning and recoating of mirrors should telescopes degrade faster than expected
 storms).
 
 Understanding the telescope performance reaches beyond managing operational costs: LCOGT operates a
-network of telescope. When an observing request is entered into the system, it is not yet clear at
-which telescope it will be executed. Moreover, due to the spatially distribution, it is a unique
-possibility of LCOGT to monitor an object continuously, handing over observations from one telescope
-to another at the darkness progresses over the globe. In this operation scenario it is troublesome
-if the throughput between telescopes varies by a factor of a few, since the scheduler has only
-knowledge about a requested exposure times, but has no notion to adjust a request for a telescope's
-actual performance. It is hence desirable to maintain the telescopes in an equal {\it} and good
-state, or to eventually give the scheduler awareness of individual telescope's performance. Deriving
-the throughput of all telescopes from all science images on a daily basis can inform either
-observatory staff, or a possibly observation scheduling robot.
+network of telescopes. When an observing request is entered into the system, it is not yet clear at
+which telescope it will be executed. Moreover, due to the spread of locations, one of LCOGT's 
+unique capabilities is to monitor an object continuously, handing over observations from one site  
+to another as the darkness progresses over the globe. In this operation scenario it is problematic
+if the throughput varies significantly between telescopes of a class, which are all treated equal 
+by the scheduler.  It is hence desirable to maintain the telescopes in an equal {\it and} good
+state, or alternatively give the scheduler awareness of the individual telescopes' performance.
+Deriving the throughput of all telescopes, from all science images, and on a daily basis can inform 
+observatory staff to better the observatory hardware and software.
 
 
 
