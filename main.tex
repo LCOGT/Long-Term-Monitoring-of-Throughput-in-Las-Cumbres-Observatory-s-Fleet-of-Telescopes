@@ -135,7 +135,6 @@ to each site --- it is highly desirable to prioritize service tasks based on per
 that are relevant to the scientific productivity of the telescope network.
 
 
-
 In this paper we describe how one specific metric, the throughput of a telescope system as measured
 by the photometric zero point, is used to understand the state of the
 telescope's optics and to guide improvement and maintenance throughout the observatory.
@@ -217,7 +216,9 @@ meaningful proxy for the system's efficiency.
 On-sky throughput measurement in the past have often been limited to isolated observations of a few
 standard stars per year\cite{benn2000}. We exploit the availability of well-calibrated all-sky
 photometric catalogs and access to a central data archive with homogeneously calibrated data to turn
-every exposure at a LCOGT telescope into a measurement of a telescope's throughput.
+every exposure at a LCOGT telescope into a measurement of a telescope's throughput. We have 
+demonstrated this approach before for data from the One Degree Imager at the WIYN 3.5 meter 
+telescope\cite{harbeck2014}.
 
 Each telescope is equipped with a primary scientific imaging camera (the imagers at the 1 and 2
 meter telescopes are based on Fairchild CCD486 devices with a field of view of $25' \times 25'$ and
@@ -249,28 +250,32 @@ calibration field observations requests are injected into the schedule for the p
 study, therefore maximizing usable science observation:
 
  
-\begin{enumerate}
-\item Check if an exposure is viable for photometric zeropoint measurement:
-  \begin{itemize}
-   \item Image is taken in a filter with a viable transformation to the SDSS
-         photometric system. At this time, the analysis is limited to the g' r' i' z' filters.
-   \item Image is in footprint of the PANSTARRS DR1 catalog, i.e., is the declination larger than
-         $-30\deg$ .
-   \item A minimum exposure time requirement is met: This is selected to be 10 seconds for the 1 and 2
-        meter telescopes, and 15 seconds for the 0.4 meter telescopes.
-\end{itemize}
+\begin{enumerate} 
+    \item Check if an exposure is viable for photometric zeropoint measurement:
    
-\item Cross-match the image's object catalog by RA/Dec coordinates with the PS1 catalog (a locally cached
-copy is used).
-\item Transform the PS1 photometry into the SDSS system\cite{finkbeiner2016}.
-\item Iteratively, with outlier rejection, fit the photometric zeropoint between instrumental
-magnitudes and catalog.
-\item Iteratively, with outlier rejection, fit a linear color term for diagnostic purposes: 
-$$ {\rm mag}_{\rm SDSS} - {\rm mag}_{\rm inst} = {\rm zeropoint} + c \times ({\rm g'}-{ \rm
-r'})_{\rm SDSS}$$.
- The color term is not yet incorporated into the zero point fitting.
-\item Store the resulting zeropoint along with meta data (exposure identifier, telescope, instrument
-identifier, airmass, formal error, color term) in a SQLite database.
+    \begin{itemize} 
+        \item Image is taken in a filter with a viable transformation to the SDSS
+        photometric system. At this time, the analysis is limited to the g' r' i' z' filters. 
+        
+        \item Image is in footprint of the PANSTARRS DR1 catalog, i.e., is the declination larger
+         than $-30\deg$ . 
+        
+        \item A minimum exposure time requirement is met: This is selected to be 10 seconds for the
+         1 and 2 meter telescopes, and 15 seconds for the 0.4 meter telescopes. 
+        
+    \end{itemize}
+    
+    \item Cross-match the image's object catalog by RA/Dec coordinates with the PS1 catalog (a 
+    locally cached copy is used). 
+    
+    \item Transform the PS1 photometry into the SDSS system\cite{finkbeiner2016}.
+    
+    \item Iteratively, with outlier rejection, fit the photometric zeropoint between instrumental
+    magnitudes and catalog. \item Iteratively, with outlier rejection, fit a linear color term for
+    diagnostic purposes: $$ {\rm mag}_{\rm SDSS} - {\rm mag}_{\rm inst} = {\rm zeropoint} + c \times
+    ({\rm g'}-{ \rm r'})_{\rm SDSS}$$. The color term is not yet incorporated into the zero point
+    fitting. \item Store the resulting zeropoint along with meta data (exposure identifier, 
+    telescope, instrument identifier, airmass, formal error, color term) in a SQLite database. 
 \end{enumerate}
 
 Diagnostic plots are optionally generated during the zeropoint fitting procedure to display the
@@ -496,22 +501,40 @@ to maintain a high throughput over an extended time.
 \end{figure}
 
 
+
+
+
+
 \section{Summary and Conclusion}
 
+The vast data set from a large fleet of telescopes with identical instrumentation over a multi-year
+time span has provided a unique insight into the aging of the optical surfaces of telescopes at
+multiple sites across the globe. at LCOGT, quantifying the throughput evolution as shown in this
+paper was an important tool to communicate the urgency of a systematic approach to maintaining the
+mirrors and proved more effective than isolated reports about mirrors being in a bad condition.
 
 LCOGT is emerging from the construction phase to an observatory in full operation; at this
 transition point, a new culture is developing to emphasis maintenance and protecting aging equipment
 against decay. The significance of the throughput loss at the telescopes was recognized in 2017, and
-a process was started to recoat all mirrors within LCOGT's network. Quantifying the throughput loss,
-as opposed by verbal reports from the sites about degrading mirror surfaces, was an important tool
-to communicate the urgency of a systematic approach to maintaining the mirrors. This was especially
-true when the drastic improvements from the first three refurbished systems became visible.
+a process was started to recoat all mirrors within LCOGT's network.  This was especially true once
+the drastic improvements from the first three refurbished systems became visible.  Analyzing the
+state of the telescopes in near real-time will inform staff in the cost-effective scheduling of
+cleaning and recoating of mirrors should telescopes degrade faster than expected (e.g., due to dust
+storms).
 
-The large fleet of telescopes with identical instrumentation that are in operation over the spawn of
-several years provides a unique insight into the aging of the optical surfaces of telescopes.
-Analyzing the state of the telescopes in near real-time will help to schedule additional cleaning
-should telescopes degrade faster than expected (e.g., due to dust storms), or if the cleaning
-protocol has to be adjusted due to a sites special conditions.
+Understanding the telescope performance reaches beyond managing operational costs: LCOGT operates a
+network of telescope. When an observing request is entered into the system, it is not yet clear at
+which telescope it will be executed. Moreover, due to the spatially distribution, it is a unique
+possibility of LCOGT to monitor an object continuously, handing over observations from one telescope
+to another at the darkness progresses over the globe. In this operation scenario it is troublesome
+if the throughput between telescopes varies by a factor of a few, since the scheduler has only
+knowledge about a requested exposure times, but has no notion to adjust a request for a telescope's
+actual performance. It is hence desirable to maintain the telescopes in an equal {\it} and good
+state, or to eventually give the scheduler awareness of individual telescope's performance. Deriving
+the throughput of all telescopes from all science images on a daily basis can inform either
+observatory staff, or a possibly observation scheduling robot.
+
+
 
 
 \section{Acknowledgement}
