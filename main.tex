@@ -106,7 +106,7 @@ and mirrors respectively.
 
 The Las Cumbres Observatory (LCOGT) operates a fleet of currently more than 20 telescopes,
 consisting of ten 0.4 meter, nine 1 meter, and two 2 meter telescopes at multiple sites across the
-globe\cite{brown2013}; an expansion of the network by additional five one meter class telescopes in
+globe\cite{brown2013}; an expansion of the network by additional five 1 meter class telescopes in
 the northern hemisphere is planned. The telescopes are located at well-established observatory sites
 which already provide service infrastructure\footnote{At LCOGT, telescope sites are identified by
     their nearest airport code (see Table \ref{tab_sites}), and we will follow that nomenclature    
@@ -139,7 +139,7 @@ that are relevant to the scientific productivity of the telescope network.
 
 
 In this paper we describe how one specific metric, the throughput of a telescope system as measured
-by the photometric zero point, is used to understand the state of the
+by the photometric zeropoint, is used to understand the state of the
 telescope's optics and to guide improvement and maintenance throughout the observatory.
 
 
@@ -160,14 +160,14 @@ Haleakala, Hawaii, USA    & OGG & 1 &   & 2 \\\hline
 operations. The LCOGT-internal site code is derived from the nearest major airport. }
 \end{table}
 
-\subsection{Maintenance of Optical Surfaces at LCO}
+\subsection{Maintenance of Optical Surfaces at LCOGT}
 
 %%%%%% Brook to review this section
 
 The mirrors of a telescope are a key factor in the  scientific performance of an observatory. Their
 reflectance typically degrades over time due to their exposure to the environment. A dominant
 degradation mechanism is dust and pollen accumulation on the mirror surface which is usually
-addressed by CO$_2$ snow cleaning or direct contact methods (wet wash with mild soap, adhesive
+addressed by CO$_2$ snow cleaning or direct contact methods (e.g., wet wash with mild soap, adhesive
 films). The long-term degradation of optics is driven by the accumulation of scratches, dust
 permanently binding to the surface, and in worse cases, by the delamination of the aluminum coating
 itself. The latter is a particular problem for all deployed LCOGT mirrors, where the aluminum layer
@@ -182,14 +182,14 @@ overcoat.
 
 Site staff administers CO$_2$-snow cleaning of the mirror surfaces of the 1 meter and 2 meter
 telescopes on a roughly monthly basis, following locally adopted best practices. However, there is
-no widespread cleaning procedure established for the 0.4 meter corrector plates yet, although
+no widespread cleaning procedure established for the 0.4 meter's corrector plates yet, although
 they accumulate dust as well. LCOGT is working currently on improving the cleaning protocol for all
 telescopes. In order to address the significantly degraded coating at the 1 meter and 2 meter
 telescopes, all mirrors are scheduled for recoating by the end of 2018. This is an enormous
 logistical effort given there are eleven such mirrors at multiple sties.
 
 At the beginning of 2018 a project team was formed to complete the optics renewal for all 1 meter and
-2 meter telescopes.  Leveraging a quality-controlled coating lab, a schedule was outlined to complete
+2 meter telescopes.  Leveraging a quality-controlled coating company, a schedule was outlined to complete
 the removal, reassembly, and collimation of the network of telescopes.  Revised 
 existing procedures were tested at LCOGT's headquarter, where personnel were trained to complete the
 work in the field.  Collimation characterization criteria were developed to qualify the newly
@@ -200,7 +200,7 @@ telescopes.
 
 \begin{figure}
 \includegraphics[width=0.95\textwidth]{images/IMG_4848.png}
-\caption{\label{fig_mirrorpeel} Mirror returned form the CTIO (LSC) site after five years of
+\caption{\label{fig_mirrorpeel} Mirror returned form the LSC (CTIO) site after five years of
 operation. The aluminum coating has peeled off, or is in the state of peeling of, at a significant
 area of the mirrors. }
 \end{figure}
@@ -228,7 +228,7 @@ meter telescopes are based on Fairchild CCD486 devices with a field of view of $
 $10' \times 10'$ respectively, the imagers at the 0.4 meter telescopes are commercial SBIG 6303
 cameras with a field of view of $30' \times 20'$). The cameras have a comprehensive filter set,
 which includes a set in the Sloan Digital Sky Survey (SDSS) photometric system\cite{fukugita1996}.
-The two meter telescopes provide low resolution spectroscopy capability via the
+The 2 meter telescopes provide low resolution spectroscopy capability via the
 Floyds\cite{brown2013} spectrograph, whereas three of LCOGT's 1 meter telescopes are equipped with
 high resolution Echelle spectrograph instruments (NRES)\cite{eastman2014,siverd2016}.
 
@@ -276,7 +276,7 @@ study, therefore maximizing usable science observations:
     \item Iteratively, with outlier rejection, fit the photometric zeropoint between instrumental
     magnitudes and catalog. \item Iteratively, with outlier rejection, fit a linear color term for
     diagnostic purposes: $$ {\rm mag}_{\rm SDSS} - {\rm mag}_{\rm inst} = {\rm zeropoint} + c \times
-    ({\rm g'}-{ \rm r'})_{\rm SDSS}$$ The color term is not yet incorporated into the zero point
+    ({\rm g'}-{ \rm r'})_{\rm SDSS}$$ The color term is not yet incorporated into the zeropoint
     fitting. \item Store the resulting zeropoint along with meta data (exposure identifier, 
     telescope, instrument identifier, airmass, formal error, color term) in a SQLite database. 
 \end{enumerate}
@@ -333,7 +333,7 @@ an older SBIG CCD camera was replaced by a more sensitive Sinistro imager.
 \item Realuminizing of a mirror results in very significant throughput improvements. Those events 
 (as well as a special cleaning of a mirror) are marked with grey vertical bars in the plots:
  \begin{enumerate}
- 	\item In October 2017 the 1 meter telescope in the {\tt dome c} at the LSC (CTIO) site.
+ 	\item In October 2017 the 1 meter telescope in the dome C at the LSC (CTIO) site.
     \item In November 2017 for the 2 meter telescope at the OGG (Haleakala) site. 
     \item In April 2018 the 1 meter telescope at the ELP  (McDonald observatory) site.
 \end{enumerate}
@@ -361,7 +361,7 @@ LSC \\
 \includegraphics[width=0.49\textwidth]{images/photzptrend-lsc-doma-1m0a-gp.png}  \hspace*{\fill}
 \includegraphics[width=0.49\textwidth]{images/photzptrend-lsc-doma-1m0a-rp.png} \\[1ex]
 
-\caption{\label{fig_zpLSC} Photometric zeropoint trends for all LCOGTN telescopes in science
+\caption{\label{fig_zpLSC} Photometric zeropoint trends for all LCOGT telescopes in science
 operations. For each telescope we plot the air-mass corrected zeropoint in the SDSS g' and r' band
 filters vs. date. Telescopes are identified by their site code, their enclosure, and telescope
 identifier (e.g., lsc:doma-1m0a is the first 1 meter telescope in doma at lsc (CTIO)). Each imaging
@@ -516,7 +516,7 @@ The vast data set from a large fleet of telescopes with identical instrumentatio
 time span has provided a unique insight into the aging of the optical surfaces of telescopes at
 multiple sites across the globe. At LCOGT, quantifying the throughput evolution as shown in this
 paper was an important tool to communicate the urgency of a systematic approach to maintaining the
-mirrors and proved more effective than isolated reports about mirrors being in a bad condition.
+mirrors and proved more effective than isolated reports about mirrors deteriorating.
 
 LCOGT is evolving from the construction phase to an observatory in full operation; at this
 transition point, a new culture is developing to emphasize maintenance and protecting aging equipment
